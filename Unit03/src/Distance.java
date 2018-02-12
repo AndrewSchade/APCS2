@@ -1,8 +1,8 @@
-//© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
+//Â© A+ Computer Science  -  www.apluscompsci.com
+//Name - Andy Schade
+//Date - 2/11/18
+//Class - per 2
+//Lab  - forgot
 
 import java.util.Scanner;
 import static java.lang.System.*;
