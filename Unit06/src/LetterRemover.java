@@ -17,9 +17,8 @@ public class LetterRemover
 		char lookFor = ' ';
 	}
 
-	public LetterRemover(String phrase, char delete) {
-		sentence = phrase;
-		lookFor = delete;
+	public LetterRemover(String s, char rem) {
+		setRemover(s, rem);
 	}
 	
 	
@@ -31,15 +30,15 @@ public class LetterRemover
 
 	public String removeLetters()
 	{
-		String cleaned = sentence;
+		String changed = sentence;
 		int loc = sentence.indexOf(lookFor);
 		while (loc > 0) {
-			cleaned = cleaned.substring(0, loc) + cleaned.substring(loc + 1);
-			loc = cleaned.indexOf(lookFor);
+			changed = changed.substring(0, loc) + changed.substring(loc + 1);
+			loc = changed.indexOf(lookFor);
 
 		}
 
-		return cleaned;
+		return changed;
 	}
 
 	public String toString()
