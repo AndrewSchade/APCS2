@@ -45,6 +45,7 @@ public class Unit09Test {
 	{
 		int x = count;
 		String output = "Goofy numnbers: " + getSomeGoofyNumbers(x);
+		return output;
 	}
 
 	public static void main( String[] args )
