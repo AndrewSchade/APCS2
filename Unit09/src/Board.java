@@ -1,3 +1,4 @@
+package elevens;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -7,17 +8,14 @@ import java.util.ArrayList;
  * card removal and the board size.
  */
 public abstract class Board {
-
 	/**
 	 * The cards on this board.
 	 */
 	private Card[] cards;
-
 	/**
 	 * The deck of cards being used to play the current game.
 	 */
 	private Deck deck;
-
 	/**
 	 * Flag used to control debugging print statements.
 	 */
@@ -40,7 +38,6 @@ public abstract class Board {
 		}
 		dealMyCards();
 	}
-
 	/**
 	 * Start a new game by shuffling the deck and
 	 * dealing some cards to this board.
@@ -49,7 +46,6 @@ public abstract class Board {
 		deck.shuffle();
 		dealMyCards();
 	}
-
 	/**
 	 * Accesses the size of the board.
 	 * Note that this is not the number of cards it contains,
@@ -59,7 +55,6 @@ public abstract class Board {
 	public int size() {
 		return cards.length;
 	}
-
 	/**
 	 * Determines if the board is empty (has no cards).
 	 * @return true if this board is empty; false otherwise.
@@ -72,7 +67,6 @@ public abstract class Board {
 		}
 		return true;
 	}
-
 	/**
 	 * Deal a card to the kth position in this board.
 	 * If the deck is empty, the kth card is set to null.
@@ -81,7 +75,6 @@ public abstract class Board {
 	public void deal(int k) {
 		cards[k] = deck.deal();
 	}
-
 	/**
 	 * Accesses the deck's size.
 	 * @return the number of undealt cards left in the deck.
@@ -89,7 +82,6 @@ public abstract class Board {
 	public int deckSize() {
 		return deck.size();
 	}
-
 	/**
 	 * Accesses a card on the board.
 	 * @return the card at position k on the board.
@@ -98,7 +90,6 @@ public abstract class Board {
 	public Card cardAt(int k) {
 		return cards[k];
 	}
-
 	/**
 	 * Replaces selected cards on the board by dealing new cards.
 	 * @param selectedCards is a list of the indices of the
@@ -109,7 +100,6 @@ public abstract class Board {
 			deal(k.intValue());
 		}
 	}
-
 	/**
 	 * Gets the indexes of the actual (non-null) cards on the board.
 	 *
@@ -125,7 +115,6 @@ public abstract class Board {
 		}
 		return selected;
 	}
-
 	/**
 	 * Generates and returns a string representation of this board.
 	 * @return the string version of this board.
@@ -137,7 +126,6 @@ public abstract class Board {
 		}
 		return s;
 	}
-
 	/**
 	 * Determine whether or not the game has been won,
 	 * i.e. neither the board nor the deck has any more cards.
@@ -155,7 +143,6 @@ public abstract class Board {
 		}
 		return false;
 	}
-
 	/**
 	 * Method to be completed by the concrete class that determines
 	 * if the selected cards form a valid group for removal.
@@ -164,7 +151,6 @@ public abstract class Board {
 	 *         false otherwise.
 	 */
 	public abstract boolean isLegal(List<Integer> selectedCards);
-
 	/**
 	 * Method to be completed by the concrete class that determines
 	 * if there are any legal plays left on the board.
@@ -172,7 +158,6 @@ public abstract class Board {
 	 *         false otherwise.
 	 */
 	public abstract boolean anotherPlayIsPossible();
-
 	/**
 	 * Deal cards to this board to start the game.
 	 */
