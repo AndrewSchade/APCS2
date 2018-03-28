@@ -24,6 +24,7 @@ public class AtCounter
 									{'-','@','@','@','-','@','-','-','-','-'},
 									{'-','@','-','@','-','@','-','@','@','@'},
 									{'-','@','@','@','@','@','-','@','@','@'}};
+
 	}
 
 	public int countAts(int r, int c)
@@ -34,29 +35,18 @@ public class AtCounter
 		if(atMat[r][c] == '@') {
 			atCount += 1;
 			atMat[r][c] = 'x';
-			countAts(r, c);
-		}
-		if(atMat[r][c] == 'x' && atMat[r+1][c] == '@' ) {
-			atCount += 1;
-			atMat[r+1][c] = 'x';
-			countAts(r+1, c);
-		}
-		if(atMat[r][c] == 'x' && atMat[r-1][c] == '@' ) {
-			atCount += 1;
-			atMat[r-1][c] = 'x';
-			countAts(r-1, c);
-		}
-		if(atMat[r][c] == 'x' && atMat[r][c + 1] == '@' ) {
-			atCount += 1;
-			atMat[r][c + 1] = 'x';
-			countAts(r, c + 1);
-		}
-		if(atMat[r][c] == 'x' && atMat[r][c - 1] == '@' ) {
-			atCount += 1;
-			atMat[r][c - 1] = 'x';
-			countAts(r, c - 1);
-		}
-		if(atMat[r+1][c] != '@' && atMat[r-1][c] != '@' && atMat[r][c+1] != '@' && atMat[r][c-1] != '@') {
+			if(r-1 >= 0){
+				countAts(r-1, c);
+			}
+			if(r+1 < atMat.length){
+				countAts(r+1, c);
+			}
+			if(c-1 >= 0){
+				countAts(r, c-1);
+			}
+			if(c+1 < atMat[0].length - 1){
+				countAts(r, c+1);
+			}
 			return 0;
 		}
 		return 0;

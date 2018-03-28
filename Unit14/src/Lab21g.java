@@ -12,9 +12,9 @@ public class Lab21g
 	{
 		//instantiate an AtCounter
 		AtCounter MyCounter = new AtCounter();
-		MyCounter.countAts(9, 9);
+		MyCounter.countAts(3, 3);
 		System.out.println(MyCounter.toString());
-		MyCounter.countAts(5, 0);
+		MyCounter.countAts(0, 0);
 		System.out.println(MyCounter.toString());
 		//test the code
 	}
