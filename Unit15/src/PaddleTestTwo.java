@@ -28,9 +28,10 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 
 		//instantiate a Ball
 		
-		
+		 ball = new Ball();
 		
 		//instantiate a left Paddle
+		leftPaddle = new Paddle();
 		
 		
 		

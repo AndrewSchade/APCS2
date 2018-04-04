@@ -63,4 +63,3 @@ class SpeedUpBall extends Ball
 
    }
 }
-

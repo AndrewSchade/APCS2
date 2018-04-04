@@ -3,6 +3,11 @@
 //Date -
 //Class -
 //Lab  -
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,29 +19,20 @@ import java.awt.event.ActionListener;
 class BallTestTwo extends Canvas implements Runnable
 {
 	private Ball ball;
-
 	public BallTestTwo()
 	{
 		setBackground(Color.WHITE);
 		setVisible(true);
-
 		//instantiate a new Ball
-
-
 		//test the Ball thoroughly
-		
-
 		//test all constructors
-
-
 		new Thread(this).start();
 	}
-	
+
 	public void update(Graphics window)
 	{
 		paint(window);
 	}
-
 	public void paint(Graphics window)
 	{
 		ball.moveAndDraw(window);
@@ -51,7 +47,6 @@ class BallTestTwo extends Canvas implements Runnable
 			ball.setYSpeed(-ball.getYSpeed());
 		}
 	}
-	
    public void run()
    {
    	try
