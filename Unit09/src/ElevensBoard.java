@@ -4,6 +4,7 @@ import java.util.ArrayList;
  * The ElevensBoard class represents the board in a game of Elevens.
  */
 public class ElevensBoard extends Board {
+	
 	/**
 	 * The size (number of cards) on the board.
 	 */
@@ -50,20 +51,22 @@ public class ElevensBoard extends Board {
 			for (int i = 0; i < selectedCards.size(); i++) {
 				sum += cardAt(selectedCards.get(i)).pointValue();
 			}
-			if (sum == 11) {
-				return true;
-			}
-		} else if (selectedCards.size() == 3) {
-			int count = 3;
-			for (int j = 10; j <= 12; j++) {
-				for (int i = 0; i < selectedCards.size(); i++) {
-					if (cardAt(selectedCards.get(i)).rank().equals(RANKS[j])) {
-						count -= 1;
-						break;
-					}
+			for (int x = 0; x < selectedCards.size() - 1; x++) {
+				if( selectedCards.get(x) == 11 && selectedCards.get(x+1) == 11){
+					return true;
 				}
 			}
-			if (count == 0) {
+			if (sum == 15) {
+				return true;
+			}
+			
+		} else if (selectedCards.size() == 3) {
+			int sum = 0;
+				for (int i = 0; i < selectedCards.size(); i++) {
+					sum += cardAt(selectedCards.get(i)).pointValue();
+				}
+		
+			if (sum == 20) {
 				return true;
 			}
 		}
@@ -80,7 +83,7 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		return(containsPairSum11(cardIndexes())||containsJQK(cardIndexes()));
+		return(containsPairSum15(cardIndexes())||containsJacks(cardIndexes()) || containsSum20(cardIndexes()));
 	}
 
 	/**
@@ -92,14 +95,33 @@ public class ElevensBoard extends Board {
 	 * @return true if the board entries in selectedCards contain an 11-pair;
 	 *         false otherwise.
 	 */
-	private boolean containsPairSum11(List<Integer> selectedCards) {
+	private boolean containsPairSum15(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 		
 		for (int i = 0; i < selectedCards.size(); i++) {
 			for (int j = 0; j < selectedCards.size(); j++) {
-				if(cardAt(selectedCards.get(i)).pointValue()+cardAt(selectedCards.get(j)).pointValue()==11)
+				if(cardAt(selectedCards.get(i)).pointValue()+cardAt(selectedCards.get(j)).pointValue()==15)
 				{
 					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	
+	
+	
+	private boolean containsSum20(List<Integer> selectedCards) {
+		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		
+		for (int i = 0; i < selectedCards.size(); i++) {
+			for (int j = 0; j < selectedCards.size(); j++) {
+				for (int x = 0; x < selectedCards.size(); x++){
+					if(cardAt(selectedCards.get(i)).pointValue()+cardAt(selectedCards.get(j)).pointValue() + cardAt(selectedCards.get(x)).pointValue()==20)
+					{
+						return true;
+					}
 				}
 			}
 		}
@@ -114,21 +136,15 @@ public class ElevensBoard extends Board {
 	 * @return true if the board entries in selectedCards include a jack, a
 	 *         queen, and a king; false otherwise.
 	 */
-	private boolean containsJQK(List<Integer> selectedCards) {
+	private boolean containsJacks(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 		
-			int count = 3;
-			for (int j = 10; j <= 12; j++) {
-				for (int i = 0; i < selectedCards.size(); i++) {
-					if (cardAt(selectedCards.get(i)).rank().equals(RANKS[j])) {
-						count -= 1;
-						break;
-					}
+				for (int i = 0; i < selectedCards.size() - 1; i++) {
+					if(selectedCards.get(i) == 11 && selectedCards.get(i+1) == 11){
+						return true;
 				}
 			}
-			if (count == 0) {
-				return true;
-			}
+			
 			return false;
 		}
 	}

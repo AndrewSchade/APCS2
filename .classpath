@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Lab9-elevensAct5Buggy1/src"/>
+	<classpathentry kind="src" path="Lab9-elevensAct5Buggy2/src"/>
+	<classpathentry kind="src" path="Lab9-elevensAct5Buggy3/src"/>
+	<classpathentry kind="src" path="Lab9-elevensAct5Buggy4/src"/>
+	<classpathentry kind="src" path="TimedFRQ/src"/>
+	<classpathentry kind="src" path="Unit02/src"/>
+	<classpathentry kind="src" path="Unit03/src"/>
+	<classpathentry kind="src" path="Unit04/src"/>
+	<classpathentry kind="src" path="Unit05/src"/>
+	<classpathentry kind="src" path="Unit06/src"/>
+	<classpathentry kind="src" path="Unit07/src"/>
+	<classpathentry kind="src" path="Unit08/src"/>
+	<classpathentry kind="src" path="Unit09/src"/>
+	<classpathentry kind="src" path="Unit10/src"/>
+	<classpathentry excluding="src/" kind="src" path="Unit11"/>
+	<classpathentry kind="src" path="Unit11/src"/>
+	<classpathentry kind="src" path="Unit12/src"/>
+	<classpathentry kind="src" path="Unit13/src"/>
+	<classpathentry kind="src" path="Unit14/src"/>
+	<classpathentry kind="src" path="Unit15/src"/>
+	<classpathentry kind="output" path="Lab9-elevensAct5Buggy1/myClasses"/>
+</classpath>
