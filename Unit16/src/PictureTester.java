@@ -160,7 +160,7 @@ public class PictureTester
     //testMirrorDiagonal(); //done
     //testCollage();
     //testCopy();
-   testEdgeDetection();
+   //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
