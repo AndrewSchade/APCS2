@@ -19,7 +19,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Ship ship;
 	private Alien alienOne;
 	private Alien alienTwo;
-	
+	private powerUpGroup pUp;
    private AlienHorde horde;
 	private Bullets shots;
 	private int tickSpacer;
@@ -31,7 +31,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 	public OuterSpace()
 	{
-		
+		pUp = new powerUpGroup();
 		horde = new AlienHorde(0);
 		shots = new Bullets();
 		ship = new Ship(400-20,500-20,40,40,2);
@@ -40,7 +40,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 		keys = new boolean[5];
 		for (int i = 0; i <5; i++) {
-			for (int j = 0; j < 4; j++) {
+			for (int j = 0; j < 2; j++) {
 				horde.add(new Alien(400+80*i,60*j, 40,40,2));
 			}
 		}
@@ -79,18 +79,75 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		if(keys[0] == true)
 		{
 			ship.move("left");
+			if(pUp.collided(ship))
+			{
+				System.out.println("hit");
+				//Thread t = new Thread()->pUp.removeCollidedOnes(ship);
+				//t.start();
+				pUp.removeCollidedOnes(ship);
+				pUp.drawEmAll(graphToBack);
+				power = true;
+				ship.setSpeed(4);
+				shots.setTickSpacer(10);
+				
+				
+			}
+			pUp.drawEmAll(graphToBack);
 		}
 		if(keys[1] == true)
 		{
 			ship.move("right");
+			if(pUp.collided(ship))
+			{
+				System.out.println("hit");
+				//Thread t = new Thread()->pUp.removeCollidedOnes(ship);
+				//t.start();
+				pUp.removeCollidedOnes(ship);
+				pUp.drawEmAll(graphToBack);
+				power = true;
+				ship.setSpeed(4);
+				shots.setTickSpacer(10);
+			
+				
+			}
+			pUp.drawEmAll(graphToBack);
 		}
 		if(keys[2] == true)
 		{
 			ship.move("up");
+			if(pUp.collided(ship))
+			{
+				System.out.println("hit");
+				//Thread t = new Thread()->pUp.removeCollidedOnes(ship);
+				//t.start();
+				pUp.removeCollidedOnes(ship);
+				pUp.drawEmAll(graphToBack);
+				power = true;
+				ship.setSpeed(4);
+				shots.setTickSpacer(10);
+			
+				
+			}
+			pUp.drawEmAll(graphToBack);
 		}
 		if(keys[3] == true)
 		{
+			
 			ship.move("down");
+			if(pUp.collided(ship))
+			{
+				System.out.println("hit");
+				//Thread t = new Thread()->pUp.removeCollidedOnes(ship);
+				//t.start();
+				pUp.removeCollidedOnes(ship);
+				pUp.drawEmAll(graphToBack);
+				power = true;
+				ship.setSpeed(4);
+				shots.setTickSpacer(10);
+			
+				
+			}
+			pUp.drawEmAll(graphToBack);
 		}
 		if(keys[4] == true)
 		{
@@ -115,6 +172,19 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 				power = false;
 			}
 		}
+		if(pUp.collided(ship))
+		{
+			System.out.println("hit");
+			//Thread t = new Thread()->pUp.removeCollidedOnes(ship);
+			//t.start();
+			pUp.removeCollidedOnes(ship);
+			pUp.drawEmAll(graphToBack);
+			power = true;
+			ship.setSpeed(4);
+			shots.setTickSpacer(10);
+			
+			
+		}
 		if(horde.checkCollide(ship))
 		{
 			JOptionPane.showConfirmDialog(null, "You have lost");
@@ -126,13 +196,17 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		
 		
 		tick2++;
-		
+		if(tick2>=1000)
+		{
+			pUp.add();
+			tick2=0;
+		}
 		
 		
 		horde.drawEmAll(graphToBack);
 		ship.draw(graphToBack);
 		shots.drawEmAll(graphToBack);
-		
+		pUp.drawEmAll(graphToBack);
 		//add code to move Ship, Alien, etc.
 		
 	
